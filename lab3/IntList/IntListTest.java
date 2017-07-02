@@ -59,11 +59,25 @@ public class IntListTest {
 
     @Test
     public void testCatenate() {
-        IntList A = IntList.list(1,2,3);
+        IntList A = IntList.list(1, 2, 3);
         IntList B = IntList.list(4, 5, 6);
         IntList exp = IntList.list(1, 2, 3, 4, 5, 6);
         assertEquals(exp, IntList.catenate(A, B));
         assertEquals(IntList.list(1, 2, 3), A);
+    }
+
+    @Test
+    public void testReverse() {
+        IntList A = IntList.list(1, 2, 3, 4);
+        A = IntList.reverse(A);
+        IntList reverseA = IntList.list(4, 3, 2, 1);
+
+        IntList nothing = IntList.list();
+        nothing = IntList.reverse(nothing);
+        IntList n = IntList.list();
+
+        assertEquals(A, reverseA);
+        assertEquals(nothing, n);
     }
 
     /** If you're running this from the command line, you'll need
