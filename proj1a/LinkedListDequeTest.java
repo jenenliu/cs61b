@@ -1,6 +1,5 @@
 /** Performs some basic linked list tests. */
 public class LinkedListDequeTest {
-	
 	/* Utility method for printing out empty checks. */
 	public static boolean checkEmpty(boolean expected, boolean actual) {
 		if (expected != actual) {
@@ -34,14 +33,14 @@ public class LinkedListDequeTest {
 	  *
 	  * && is the "and" operation. */
 	public static void addIsEmptySizeTest() {
+	    System.out.println(113 / 2);
 		System.out.println("Running add/isEmpty/Size test.");
 		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
-		/*
-		LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
+		ArrayDeque<String> lld1 = new ArrayDeque<String>();
 
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
-		lld1.addFirst("front");
+		lld1.addLast("front");
 		
 		// The && operator is the same as "and" in Python.
 		// It's a binary operator that returns true if both arguments true, and false otherwise.
@@ -54,11 +53,48 @@ public class LinkedListDequeTest {
 		lld1.addLast("back");
 		passed = checkSize(3, lld1.size()) && passed;
 
+		lld1.addFirst("a");
+		lld1.printDeque();
+		System.out.println("get index " + 0 + ": " + lld1.get(0));
+		System.out.println("get index " + 1 + ": " + lld1.get(1));
+		lld1.addFirst("b");
+		lld1.printDeque();
+        System.out.println("get index " + 1 + ": " + lld1.get(1));
+        System.out.println("get index " + 3 + ": " + lld1.get(3));
+		lld1.addFirst("c");
+		lld1.printDeque();
+        System.out.println("get index " + 0 + ": " + lld1.get(0));
+        System.out.println("get index " + 2 + ": " + lld1.get(2));
+        System.out.println("get index " + 4 + ": " + lld1.get(4));
+        System.out.println("get index " + 9 + ": " + lld1.get(9));
+		lld1.addFirst("d");
+		lld1.printDeque();
+        System.out.println("get index " + -1 + ": " + lld1.get(-1));
+        System.out.println("get index " + 3 + ": " + lld1.get(3));
+        System.out.println("get index " + 4 + ": " + lld1.get(4));
+        System.out.println("get index " + 8 + ": " + lld1.get(8));
+ 		lld1.addFirst("e");
+ 		lld1.printDeque();
+        System.out.println("get index " + 3 + ": " + lld1.get(3));
+ 		lld1.addFirst("f");
+ 		lld1.printDeque();
+        System.out.println("get index " + 3 + ": " + lld1.get(3));
+
+ 		lld1.removeLast();
+ 		lld1.removeLast();
+ 		lld1.removeLast();
+ 		lld1.removeLast();
+ 		lld1.removeLast();
+ 		lld1.removeLast();
+ 		lld1.removeLast();
+ 		lld1.removeLast();
+ 		lld1.removeLast();
+ 		lld1.removeLast();
 		System.out.println("Printing out deque: ");
 		lld1.printDeque();
 
 		printTestStatus(passed);
-		*/
+
 	}
 
 	/** Adds an item, then removes an item, and ensures that dll is empty afterwards. */
@@ -67,21 +103,28 @@ public class LinkedListDequeTest {
 		System.out.println("Running add/remove test.");
 
 		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
-		/*
 		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
 		// should be empty 
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
 		lld1.addFirst(10);
+		passed = (10 == lld1.recursiveGet(0)) && passed;
+		passed = (null == lld1.recursiveGet(-1) && passed);
 		// should not be empty 
 		passed = checkEmpty(false, lld1.isEmpty()) && passed;
+        lld1.addFirst(20);
+        passed = (20 == lld1.recursiveGet(0)) && passed;
+        passed = (10 == lld1.recursiveGet(1)) && passed;
 
-		lld1.removeFirst();
-		// should be empty 
-		passed = checkEmpty(true, lld1.isEmpty()) && passed;
+//		lld1.removeFirst();
+		// should be empty
+        lld1.removeLast();
+		passed = checkEmpty(false, lld1.isEmpty()) && passed;
 
+//		lld1.removeFirst();
+
+        lld1.removeLast();
 		printTestStatus(passed);
-		*/
 	}
 
 	public static void main(String[] args) {
@@ -89,4 +132,4 @@ public class LinkedListDequeTest {
 		addIsEmptySizeTest();
 		addRemoveTest();
 	}
-} 
+}
