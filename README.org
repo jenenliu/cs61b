@@ -1,0 +1,2 @@
+This is my personal learning process for [[http://datastructur.es/sp17/index.html][cs106b]].
+All the commits are solutions to lab/prject. 
